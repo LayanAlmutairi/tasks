@@ -25,7 +25,6 @@ const { BLANK_QUESTIONS, SIMPLE_QUESTIONS }: Record<string, Question[]> =
 // We have backup versions of the data to make sure all changes are immutable
 const {
     BLANK_QUESTIONS: BACKUP_BLANK_QUESTIONS,
-
     SIMPLE_QUESTIONS: BACKUP_SIMPLE_QUESTIONS,
 }: Record<string, Question[]> = backupQuestionData as Record<
     string,
@@ -39,7 +38,6 @@ const [
     BACKUP_ADDITION_QUESTION,
     BACKUP_LETTER_QUESTION,
     BACKUP_COLOR_QUESTION,
-
     BACKUP_SHAPE_QUESTION,
 ] = BACKUP_SIMPLE_QUESTIONS;
 
@@ -68,7 +66,6 @@ describe("Testing the object functions", () => {
 
     ///////////////////////////////////
     // isCorrect
-
     test("(3 pts) Testing the isCorrect function", () => {
         expect(isCorrect(ADDITION_QUESTION, "4")).toEqual(true);
         expect(isCorrect(ADDITION_QUESTION, "2")).toEqual(false);
@@ -88,7 +85,6 @@ describe("Testing the object functions", () => {
 
     ///////////////////////////////////
     // isValid
-
     test("(3 pts) Testing the isValid function", () => {
         expect(isValid(ADDITION_QUESTION, "4")).toEqual(true);
         expect(isValid(ADDITION_QUESTION, "2")).toEqual(true);
@@ -112,7 +108,6 @@ describe("Testing the object functions", () => {
 
     ///////////////////////////////////
     // toShortForm
-
     test("(3 pts) Testing the toShortForm function", () => {
         expect(toShortForm(ADDITION_QUESTION)).toEqual("1: Addition");
         expect(toShortForm(LETTER_QUESTION)).toEqual("2: Letters");
@@ -123,7 +118,6 @@ describe("Testing the object functions", () => {
 
     ///////////////////////////////////
     // toMarkdown
-
     test("(3 pts) Testing the toMarkdown function", () => {
         expect(toMarkdown(ADDITION_QUESTION)).toEqual(`# Addition
 What is 2+2?`);
@@ -151,7 +145,6 @@ What shape can you make with one line?
 
     ///////////////////////////////////
     // renameQuestion
-
     test("(3 pts) Testing the renameQuestion function", () => {
         expect(
             renameQuestion(ADDITION_QUESTION, "My Addition Question"),
@@ -163,7 +156,6 @@ What shape can you make with one line?
             options: [],
             expected: "4",
             points: 1,
-
             published: true,
         });
         expect(
@@ -176,14 +168,12 @@ What shape can you make with one line?
             options: ["square", "triangle", "circle"],
             expected: "circle",
             points: 2,
-
             published: false,
         });
     });
 
     ///////////////////////////////////
     // publishQuestion
-
     test("(3 pts) Testing the publishQuestion function", () => {
         expect(publishQuestion(ADDITION_QUESTION)).toEqual({
             id: 1,
@@ -193,7 +183,6 @@ What shape can you make with one line?
             options: [],
             expected: "4",
             points: 1,
-
             published: false,
         });
         expect(publishQuestion(LETTER_QUESTION)).toEqual({
@@ -204,7 +193,6 @@ What shape can you make with one line?
             options: [],
             expected: "Z",
             points: 1,
-
             published: true,
         });
         expect(publishQuestion(publishQuestion(ADDITION_QUESTION))).toEqual({
@@ -215,14 +203,12 @@ What shape can you make with one line?
             options: [],
             expected: "4",
             points: 1,
-
             published: true,
         });
     });
 
     ///////////////////////////////////
     // duplicateQuestion
-
     test("(3 pts) Testing the duplicateQuestion function", () => {
         expect(duplicateQuestion(9, ADDITION_QUESTION)).toEqual({
             id: 9,
@@ -232,7 +218,6 @@ What shape can you make with one line?
             options: [],
             expected: "4",
             points: 1,
-
             published: false,
         });
         expect(duplicateQuestion(55, LETTER_QUESTION)).toEqual({
@@ -243,14 +228,12 @@ What shape can you make with one line?
             options: [],
             expected: "Z",
             points: 1,
-
             published: false,
         });
     });
 
     ///////////////////////////////////
     // addOption
-
     test("(3 pts) Testing the addOption function", () => {
         expect(addOption(SHAPE_QUESTION, "heptagon")).toEqual({
             id: 9,
@@ -260,7 +243,6 @@ What shape can you make with one line?
             options: ["square", "triangle", "circle", "heptagon"],
             expected: "circle",
             points: 2,
-
             published: false,
         });
         expect(addOption(COLOR_QUESTION, "squiggles")).toEqual({
@@ -271,21 +253,18 @@ What shape can you make with one line?
             options: ["red", "apple", "firetruck", "squiggles"],
             expected: "red",
             points: 1,
-
             published: true,
         });
     });
 
     ///////////////////////////////////
     // mergeQuestion
-
     test("(3 pts) Testing the mergeQuestion function", () => {
         expect(
             mergeQuestion(
                 192,
                 "More Points Addition",
                 ADDITION_QUESTION,
-
                 SHAPE_QUESTION,
             ),
         ).toEqual({
@@ -296,7 +275,6 @@ What shape can you make with one line?
             options: [],
             expected: "4",
             points: 2,
-
             published: false,
         });
 
@@ -305,7 +283,6 @@ What shape can you make with one line?
                 99,
                 "Less Points Shape",
                 SHAPE_QUESTION,
-
                 ADDITION_QUESTION,
             ),
         ).toEqual({
@@ -316,7 +293,6 @@ What shape can you make with one line?
             options: ["square", "triangle", "circle"],
             expected: "circle",
             points: 1,
-
             published: false,
         });
     });
