@@ -11,7 +11,7 @@ import { DoubleHalf } from "./bad-components/DoubleHalf";
 import { ColoredBox } from "./bad-components/ColoredBox";
 import { ShoveBox } from "./bad-components/ShoveBox";
 import { ChooseTeam } from "./bad-components/ChooseTeam";
-
+////<h1> This is the header!</h1>
 function App(): React.JSX.Element {
     return (
         <div className="App">
@@ -20,6 +20,7 @@ function App(): React.JSX.Element {
                 UD CISC275 with React Hooks and TypeScript Layan Almutairi Hello
                 World
             </header>
+            <h1>This is the header!</h1>
             <img
                 src="C:\Users\layan\tasks\src\images\Milan.jpg"
                 alt="A picture of my cat Milan"
@@ -66,7 +67,7 @@ function App(): React.JSX.Element {
                 automatically reload.
             </p>
             <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
+            <DoubleHalf></DoubleHalf>
             <hr></hr>
             <ChooseTeam></ChooseTeam>
             <hr></hr>
